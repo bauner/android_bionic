@@ -8,6 +8,7 @@ LOCAL_SRC_FILES:= \
     linker.cpp \
     linker_allocator.cpp \
     linker_environ.cpp \
+    linker_libc_support.c \
     linker_phdr.cpp \
     rt.cpp \
 
@@ -37,10 +38,6 @@ LOCAL_CPPFLAGS += \
 
 # We need to access Bionic private headers in the linker.
 LOCAL_CFLAGS += -I$(LOCAL_PATH)/../libc/
-
-ifeq ($(TARGET_NEEDS_NON_PIE_SUPPORT),true)
-LOCAL_CFLAGS += -DENABLE_NON_PIE_SUPPORT
-endif
 
 # we don't want crtbegin.o (because we have begin.o), so unset it
 # just for this module
