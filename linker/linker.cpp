@@ -1464,7 +1464,7 @@ int soinfo::Relocate(ElfW(Rel)* rel, unsigned count) {
                    reloc, sym_addr, rel->r_offset, sym_name);
         *reinterpret_cast<ElfW(Addr)*>(reloc) += sym_addr - rel->r_offset;
         break;
-        case R_ARM_COPY:
+      case R_ARM_COPY:
 #ifndef ENABLE_NON_PIE_SUPPORT
             /*
              * ET_EXEC is not supported so this should not happen.
